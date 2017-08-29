@@ -28,5 +28,5 @@
     <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
 
     <!-- security datasource: -->
-    <bean id="userRealm" class="org.iskycode.jeesky.sys.realm.UserRealm"/>
+    <bean id="userRealm" class="org.iskycode.jeesky.sys.security.UserRealm"/>
 </beans>

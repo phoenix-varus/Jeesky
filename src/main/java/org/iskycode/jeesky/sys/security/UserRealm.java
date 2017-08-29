@@ -1,4 +1,4 @@
-package org.iskycode.jeesky.sys.realm;
+package org.iskycode.jeesky.sys.security;
 
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
