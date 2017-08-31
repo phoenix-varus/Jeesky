@@ -10,6 +10,9 @@
 <link rel="stylesheet" href="../../static/css/bootstrap-theme.min.css"/>
 <link rel="stylesheet" href="../../static/css/bootstrap.min.css"/>
 
+<%--Icon--%>
+<link rel="shortcut icon" href=""/>
+
 <%--Font Awesome--%>
 <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css"/>
 
