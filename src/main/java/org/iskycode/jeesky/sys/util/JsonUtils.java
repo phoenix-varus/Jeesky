@@ -1,4 +1,4 @@
-package org.iskycode.jeesky.util;
+package org.iskycode.jeesky.sys.util;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

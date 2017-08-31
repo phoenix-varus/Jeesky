@@ -1,18 +1,16 @@
-package org.iskycode.jeesky.sys.service;
+package org.iskycode.jeesky.adm.service;
 
-import org.iskycode.jeesky.sys.dao.PermissionDao;
-import org.iskycode.jeesky.sys.dao.RoleDao;
-import org.iskycode.jeesky.sys.dao.UserDao;
-import org.iskycode.jeesky.sys.entity.Permission;
-import org.iskycode.jeesky.sys.entity.Role;
-import org.iskycode.jeesky.sys.entity.User;
+import org.iskycode.jeesky.adm.dao.PermissionDao;
+import org.iskycode.jeesky.adm.dao.RoleDao;
+import org.iskycode.jeesky.adm.dao.UserDao;
+import org.iskycode.jeesky.adm.entity.Permission;
+import org.iskycode.jeesky.adm.entity.Role;
+import org.iskycode.jeesky.adm.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Service
 public class UserService {

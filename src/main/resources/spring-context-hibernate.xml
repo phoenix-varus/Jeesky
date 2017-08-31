@@ -33,7 +33,7 @@
 		<property name="dataSource" ref="dataSource" />
 		<property name="packagesToScan">
 			<list>
-				<value>org.iskycode.jeesky.sys.entity</value>
+				<value>org.iskycode.jeesky.adm.entity</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
