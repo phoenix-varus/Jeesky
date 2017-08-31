@@ -25,7 +25,7 @@ public class LoginController {
 
     @RequestMapping(value = "/index")
     public String toLogin() {
-        return "index";
+        return "WEB-INF/adm/index";
     }
 
     @ResponseBody
