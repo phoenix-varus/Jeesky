@@ -1,5 +1,7 @@
 <html>
 <body>
-<h2>Hello World!</h2>
+<script>
+    location.href = "/l/index.action"
+</script>
 </body>
 </html>
