@@ -1,6 +1,9 @@
-package org.iskycode.jeesky.adm.util;
+package org.iskycode.jeesky.sys.util;
 
 public class Const {
+    // CopyRight
+    public final static String COPYRIGHT = "CopyRight©2017 JeeSky - iSkyCode";
+
     // Jsp Path
     public final static String COMMON_JSP = "WEB-INF/com/";
     public final static String ADMIN_JSP = "WEB-INF/adm/";
