@@ -24,7 +24,7 @@ public class LoginController {
     @Autowired
     private SecurityManager securityManager;
 
-    @RequestMapping(value = "/index")
+    @RequestMapping(value = "/tologin")
     public String toLogin() {
         return Const.COMMON_JSP + "login";
     }
@@ -60,10 +60,16 @@ public class LoginController {
         return JsonUtils.toJson(map);
     }
 
-
+    @RequestMapping(value = "toregister")
     public String toRegister() {
+        return Const.COMMON_JSP + "register";
+    }
+
+    @RequestMapping(value = "register")
+    public String register() {
         return "";
     }
+
 
     @RequestMapping(value = "/logout")
     public String logout() {
