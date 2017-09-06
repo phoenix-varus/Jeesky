@@ -143,11 +143,14 @@
                 </h3>
             </div>
             <div class="panel-body">
-                这是一个基本的面板
+                <input id="fileupload" type="file" multiple class="">
             </div>
             <div class="panel-footer">这里是个脚注的说</div>
         </div>
     </div>
 </div>
+<script>
+    $("#fileupload").fileinput({language: 'zh', msgZoomModalHeading: "文件预览"});
+</script>
 </body>
 </html>

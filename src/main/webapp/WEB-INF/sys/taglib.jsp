@@ -6,9 +6,15 @@
 <%--Bootstrap--%>
 <script src="../../static/js/bootstrap.min.js"></script>
 
+<!--FileUpload-->
+<script src="../../static/js/fileinput.js"></script>
+
 <%--Bootstrap--%>
 <link rel="stylesheet" href="../../static/css/bootstrap-theme.min.css"/>
 <link rel="stylesheet" href="../../static/css/bootstrap.min.css"/>
+
+<!--FileUpload-->
+<link rel="stylesheet" href="../../static/css/fileinput.min.css"/>
 
 <%--Icon--%>
 <link rel="shortcut icon" href=""/>
