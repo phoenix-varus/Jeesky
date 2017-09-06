@@ -68,7 +68,7 @@
         </form>
         <br>
     </div>
-    <div class="login-copyright">CopyRight©2017 JeeSky - iSkyCode</div>
+    <div class="login-copyright"><jk:copyright></jk:copyright></div>
 </div>
 </body>
 </html>

@@ -1,5 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
+<%--TLDs--%>
+<%@ taglib prefix="jk" uri="tlds/jeesky.tld" %>
+
 <%--JQuery--%>
 <script src="../../static/js/jquery.min.js"></script>
 
