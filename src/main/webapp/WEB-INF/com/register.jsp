@@ -1,38 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Test</title>
-    <!--JQuery-->
-    <script src="../../static/js/jquery.min.js"></script>
+    <title>登录</title>
+    <%--Taglib--%>
+    <%@include file="../sys/taglib.jsp" %>
 
-    <!--Bootstrap-->
-    <script src="../../static/js/bootstrap.min.js"></script>
-
-    <!--FileUpload-->
-    <script src="../../static/js/fileinput.js"></script>
-
-    <!--Bootstrap-->
-    <link rel="stylesheet" href="../../static/css/bootstrap-theme.min.css"/>
-    <link rel="stylesheet" href="../../static/css/bootstrap.min.css"/>
-
-    <!--FileUpload-->
-    <link rel="stylesheet" href="../../static/css/fileinput.min.css"/>
-
-    <!--Icon-->
-    <link rel="shortcut icon" href=""/>
-
-    <!--Font Awesome-->
-    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css"/>
-
-    <!--Font-->
-    <style>
-        @font-face {
-            font-family: 'dnmbxsxd';
-            src: url('../../static/fonts/duanningmaobixingshuxiuding.ttf');
-        }
-    </style>
-    <style>
+    <style type="text/css">
         html, body, .page {
             margin: 0px;
             height: 100%;
@@ -57,6 +30,10 @@
 
         .i-btn-group {
             width: 100%;
+        }
+
+        .i-login-btn {
+            width: 50%;
         }
 
         .login-copyright {
@@ -85,7 +62,8 @@
             </div>
             <br/>
             <div class="btn-group i-btn-group">
-                <button type="submit" class="btn btn-default btn-block">提交</button>
+                <button class="btn btn-default btn-group-lg i-login-btn">注册</button>
+                <button type="submit" class="btn btn-default btn-group-lg i-login-btn">登录</button>
             </div>
         </form>
         <br>
