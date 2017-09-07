@@ -32,10 +32,6 @@
             width: 100%;
         }
 
-        .i-login-btn {
-            width: 50%;
-        }
-
         .login-copyright {
             position: absolute;
             bottom: 20px;
@@ -60,10 +56,13 @@
                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                 <input class="form-control" id="password" name="password" type="password" placeholder="密码"/>
             </div>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                <input class="form-control" id="cpassword" name="cpassword" type="password" placeholder="确认密码"/>
+            </div>
             <br/>
             <div class="btn-group i-btn-group">
-                <button class="btn btn-default btn-group-lg i-login-btn">注册</button>
-                <button type="submit" class="btn btn-default btn-group-lg i-login-btn">登录</button>
+                <button type="submit" class="btn btn-default btn-block">提交</button>
             </div>
         </form>
         <br>
