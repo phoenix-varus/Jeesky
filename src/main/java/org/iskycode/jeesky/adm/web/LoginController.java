@@ -67,7 +67,7 @@ public class LoginController {
 
     @RequestMapping(value = "register")
     public String register() {
-        return "";
+        return "redirect:/l/toLogin";
     }
 
 
@@ -76,6 +76,6 @@ public class LoginController {
         SecurityUtils.setSecurityManager(securityManager);
         Subject subject = SecurityUtils.getSubject();
         subject.logout();
-        return "redirect:/l/index";
+        return "redirect:/l/toLogin";
     }
 }
