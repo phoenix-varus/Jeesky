@@ -60,7 +60,7 @@ public class LoginController {
         return JsonUtils.toJson(map);
     }
 
-    @RequestMapping(value = "toegister")
+    @RequestMapping(value = "toRegister")
     public String toRegister() {
         return Const.COMMON_JSP + "register";
     }
