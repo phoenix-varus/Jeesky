@@ -1,7 +1,7 @@
 <html>
 <body>
 <script>
-    location.href = "/l/tologin.action"
+    location.href = "/l/toLogin.action"
 </script>
 </body>
 </html>
