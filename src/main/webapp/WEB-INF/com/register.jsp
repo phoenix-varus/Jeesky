@@ -3,7 +3,7 @@
 <head>
     <title>登录</title>
     <%--Taglib--%>
-    <%@include file="../sys/taglib.jsp" %>
+    <jsp:include page="../sys/taglib.jsp"></jsp:include>
 
     <style type="text/css">
         html, body, .page {
@@ -45,7 +45,7 @@
     <div class="login-div">
         <h2>注册一下，开始修仙</h2>
         <br/>
-        <form class="login-form" role="form" method="post" action="">
+        <form class="login-form" role="form" method="post" action="/l/register.action">
             <div class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"
                                                        aria-hidden="true"></i></span>
@@ -56,8 +56,9 @@
                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                 <input class="form-control" id="password" name="password" type="password" placeholder="密码"/>
             </div>
+            <br/>
             <div class="input-group">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                <span class="input-group-addon"><i class="glyphicon glyphicon-ok-sign"></i></span>
                 <input class="form-control" id="cpassword" name="cpassword" type="password" placeholder="确认密码"/>
             </div>
             <br/>

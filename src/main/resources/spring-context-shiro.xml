@@ -11,7 +11,7 @@
 
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
         <property name="securityManager" ref="securityManager"/>
-        <property name="loginUrl" value="/l/toLogin"/>
+        <property name="loginUrl" value="/l/tologin"/>
         <property name="successUrl" value="/a/user/index"/>
         <property name="filterChainDefinitions">
             <value>

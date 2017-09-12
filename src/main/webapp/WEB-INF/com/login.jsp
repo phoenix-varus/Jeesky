@@ -3,7 +3,7 @@
 <head>
     <title>登录</title>
     <%--Taglib--%>
-    <%@include file="../sys/taglib.jsp" %>
+    <jsp:include page="../sys/taglib.jsp"></jsp:include>
     <script type="application/javascript" src="../../static/js/login/login.js"></script>
     <style type="text/css">
         html, body, .page {
@@ -62,7 +62,7 @@
             </div>
             <br/>
             <div class="btn-group i-btn-group">
-                <button class="btn btn-default btn-group-lg i-login-btn" onclick="register()">注册</button>
+                <a class="btn btn-default btn-group-lg i-login-btn" href="../l/toregister.action">注册</a>
                 <button type="submit" class="btn btn-default btn-group-lg i-login-btn">登录</button>
             </div>
         </form>

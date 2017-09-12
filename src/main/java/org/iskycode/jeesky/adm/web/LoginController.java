@@ -65,7 +65,7 @@ public class LoginController {
         return JsonUtils.toJson(map);
     }
 
-    @RequestMapping(value = "toRegister")
+    @RequestMapping(value = "toregister")
     public String toRegister() {
         return Const.COMMON_JSP + "register";
     }
@@ -76,7 +76,7 @@ public class LoginController {
         user.setName(username);
         user.setPassword(password);
         userService.saveOrUpdate(user);
-        return "redirect:/l/toLogin";
+        return "redirect:/l/tologin";
     }
 
 
@@ -85,6 +85,6 @@ public class LoginController {
         SecurityUtils.setSecurityManager(securityManager);
         Subject subject = SecurityUtils.getSubject();
         subject.logout();
-        return "redirect:/l/toLogin";
+        return "redirect:/l/tologin";
     }
 }
