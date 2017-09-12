@@ -47,4 +47,8 @@ public class UserService {
     public List<User> findAllUser() {
         return userDao.loadAll();
     }
+
+    public void saveOrUpdate(User user) {
+        userDao.saveOrUpdate(user);
+    }
 }
