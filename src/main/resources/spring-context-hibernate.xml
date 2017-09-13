@@ -30,7 +30,7 @@
 
     <!-- spring代管hibernate的在spring文件中的配置 -->
     <bean id="sf"
-          class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+          class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="packagesToScan">
             <list>
@@ -48,30 +48,35 @@
     </bean>
 
     <!-- hibernate的持久化访问模块配置 -->
-    <bean id="hibernateTemplate" class="org.springframework.orm.hibernate4.HibernateTemplate">
+    <bean id="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
         <property name="sessionFactory" ref="sf"></property>
     </bean>
 
     <!-- hibernate的事务管理 -->
     <bean id="txManager"
-          class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+          class="org.springframework.orm.hibernate5.HibernateTransactionManager">
         <property name="sessionFactory" ref="sf"/>
     </bean>
 
     <tx:advice id="txAdvice" transaction-manager="txManager">
         <tx:attributes>
             <!--<tx:method name="exists" read-only="true"/> -->
-            <tx:method name="add*" propagation="REQUIRED" read-only="false"/>
-            <tx:method name="save*" propagation="REQUIRED" read-only="false"/>
-            <tx:method name="update*" propagation="REQUIRED" read-only="false"/>
-            <tx:method name="delete*" propagation="REQUIRED" read-only="false"/>
-            <tx:method name="find*" propagation="REQUIRED" read-only="true"/>
-            <tx:method name="get*" propagation="REQUIRED" read-only="true"/>
+            <!--<tx:method name="add*" propagation="REQUIRED" read-only="false"/>-->
+            <!--<tx:method name="save*" propagation="REQUIRED" read-only="false"/>-->
+            <!--<tx:method name="update*" propagation="REQUIRED" read-only="false"/>-->
+            <!--<tx:method name="delete*" propagation="REQUIRED" read-only="false"/>-->
+            <!--<tx:method name="find*" propagation="REQUIRED" read-only="true"/>-->
+            <!--<tx:method name="get*" propagation="REQUIRED" read-only="true"/>-->
+            <tx:method name="*" propagation="REQUIRED" />
         </tx:attributes>
     </tx:advice>
 
     <aop:config expose-proxy="true">
         <aop:pointcut id="txPointcut" expression="execution(* org.iskycode.*.service.*.*(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/>
+    </aop:config>
+    <aop:config expose-proxy="true">
+        <aop:pointcut id="txPointcut" expression="execution(* org.iskycode.*.dao.*.*(..))"/>
         <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/>
     </aop:config>
 
