@@ -18,6 +18,11 @@
     <!-- 静态资源文件的访问设置 -->
     <mvc:resources mapping="/static/**" location="/static/"/>
 
+    <context:component-scan base-package="org.iskycode.jeesky">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+    </context:component-scan>
+
     <bean id="contentNegotiationManager"
           class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
         <!-- 下面三个可以全部进行设置，也可以全部不写，或者写其中几个；为了系统安全性和代码一致性，推荐是写的（个人理解，仅供参考）。 -->

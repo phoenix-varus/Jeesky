@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.lang.reflect.ParameterizedType;
@@ -13,7 +14,7 @@ import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Map;
 
-@Transactional
+@Transactional(value = "txManager", readOnly = false, propagation = Propagation.REQUIRED)
 @Component
 public class BaseDao<T> {
 
@@ -41,7 +42,9 @@ public class BaseDao<T> {
     //---------------------------------------hibernate---------------------------------------
 
     public Object save(Object entity) {
-        return hibernateTemplate.save(entity);
+        Object obj = hibernateTemplate.save(entity);
+        hibernateTemplate.flush();
+        return obj;
     }
 
     public void update(Object entity) {
