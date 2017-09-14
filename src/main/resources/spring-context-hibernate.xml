@@ -42,14 +42,20 @@
                 <prop key="hibernate.dialect">
                     org.hibernate.dialect.MySQLDialect
                 </prop>
+                <prop key="hibernate.format_sql">true</prop>
                 <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.connection.autocommit">true</prop>
             </props>
         </property>
     </bean>
 
+    <!--hibernate事务注解支持-->
+    <tx:annotation-driven transaction-manager="txManager"/>
+
     <!-- hibernate的持久化访问模块配置 -->
     <bean id="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
         <property name="sessionFactory" ref="sf"></property>
+        <property name="checkWriteOperations" value="false"/>
     </bean>
 
     <!-- hibernate的事务管理 -->
@@ -57,28 +63,6 @@
           class="org.springframework.orm.hibernate5.HibernateTransactionManager">
         <property name="sessionFactory" ref="sf"/>
     </bean>
-
-    <tx:advice id="txAdvice" transaction-manager="txManager">
-        <tx:attributes>
-            <!--<tx:method name="exists" read-only="true"/> -->
-            <!--<tx:method name="add*" propagation="REQUIRED" read-only="false"/>-->
-            <!--<tx:method name="save*" propagation="REQUIRED" read-only="false"/>-->
-            <!--<tx:method name="update*" propagation="REQUIRED" read-only="false"/>-->
-            <!--<tx:method name="delete*" propagation="REQUIRED" read-only="false"/>-->
-            <!--<tx:method name="find*" propagation="REQUIRED" read-only="true"/>-->
-            <!--<tx:method name="get*" propagation="REQUIRED" read-only="true"/>-->
-            <tx:method name="*" propagation="REQUIRED" />
-        </tx:attributes>
-    </tx:advice>
-
-    <aop:config expose-proxy="true">
-        <aop:pointcut id="txPointcut" expression="execution(* org.iskycode.*.service.*.*(..))"/>
-        <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/>
-    </aop:config>
-    <aop:config expose-proxy="true">
-        <aop:pointcut id="txPointcut" expression="execution(* org.iskycode.*.dao.*.*(..))"/>
-        <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/>
-    </aop:config>
 
     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
         <property name="dataSource">

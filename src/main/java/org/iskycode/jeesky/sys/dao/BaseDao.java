@@ -1,20 +1,28 @@
 package org.iskycode.jeesky.sys.dao;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Map;
 
+@Transactional
 @Component
 public class BaseDao<T> {
 
     @Autowired
+    SessionFactory sf;
+
+    @Autowired
     private HibernateTemplate hibernateTemplate;
+
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
@@ -29,6 +37,8 @@ public class BaseDao<T> {
         Type[] params = ((ParameterizedType) genType).getActualTypeArguments();
         return (Class<?>) params[0];
     }
+
+    //---------------------------------------hibernate---------------------------------------
 
     public Object save(Object entity) {
         return hibernateTemplate.save(entity);
@@ -46,6 +56,20 @@ public class BaseDao<T> {
         hibernateTemplate.delete(entity);
     }
 
+    public void flush() {
+        getSession().flush();
+    }
+
+    public void clear() {
+        getSession().clear();
+    }
+
+    public Session getSession() {
+        return sf.getCurrentSession();
+    }
+
+    //---------------------------------------hibernate---------------------------------------
+
     public Object load(String id) {
         return hibernateTemplate.load(getEntityClass(), id);
     }
@@ -62,14 +86,7 @@ public class BaseDao<T> {
         return hibernateTemplate.findByExample(entity);
     }
 
-    public void flush() {
-        hibernateTemplate.flush();
-    }
-
-    public void clear() {
-        hibernateTemplate.clear();
-    }
-
+    //---------------------------------------jdbcTemplate---------------------------------------
 
     public Map queryForMap(String sql) {
         return jdbcTemplate.queryForMap(sql);

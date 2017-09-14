@@ -8,11 +8,14 @@ import org.iskycode.jeesky.adm.entity.Role;
 import org.iskycode.jeesky.adm.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
 import java.util.List;
 
 @Service
+@Transactional(readOnly = false)
 public class UserService {
 
     @Autowired
@@ -48,7 +51,13 @@ public class UserService {
         return userDao.loadAll();
     }
 
+    @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
     public void saveOrUpdate(User user) {
         userDao.saveOrUpdate(user);
+    }
+
+    @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
+    public void save(User user) {
+        userDao.save(user);
     }
 }

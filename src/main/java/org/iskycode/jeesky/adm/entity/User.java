@@ -1,6 +1,7 @@
 package org.iskycode.jeesky.adm.entity;
 
 
+import org.hibernate.annotations.GenericGenerator;
 import org.iskycode.jeesky.sys.entity.BaseEntity;
 
 import javax.persistence.Entity;
@@ -12,7 +13,8 @@ import javax.persistence.Table;
 @Table(name = "sys_user")
 public class User extends BaseEntity {
     @Id
-    @GeneratedValue
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid")
     private String id;
     // 用户名
     private String name;
