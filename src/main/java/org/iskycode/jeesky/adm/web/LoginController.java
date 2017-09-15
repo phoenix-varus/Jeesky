@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.apache.shiro.mgt.SecurityManager;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -75,6 +76,7 @@ public class LoginController {
         User user = new User();
         user.setName(username);
         user.setPassword(password);
+        user.setCreateDate(new Date());
         userService.save(user);
         return "redirect:/l/tologin";
     }
