@@ -76,8 +76,7 @@ public class LoginController {
         User user = new User();
         user.setName(username);
         user.setPassword(password);
-
-        userService.save(user);
+        userService.saveOrUpdate(user);
         return "redirect:/l/tologin";
     }
 

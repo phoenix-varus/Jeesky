@@ -1,5 +1,6 @@
 package org.iskycode.jeesky.sys.dao;
 
+import org.hibernate.FlushMode;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,6 @@ import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Map;
 
-@Transactional(value = "txManager", readOnly = false, propagation = Propagation.REQUIRED)
 @Component
 public class BaseDao<T> {
 
@@ -39,24 +39,31 @@ public class BaseDao<T> {
         return (Class<?>) params[0];
     }
 
-    //---------------------------------------hibernate---------------------------------------
+    //---------------------------------------hibernate session---------------------------------------
 
     public Object save(Object entity) {
-        Object obj = hibernateTemplate.save(entity);
-        hibernateTemplate.flush();
+        getSession().getTransaction().begin();
+        Object obj = getSession().save(entity);
+        getSession().getTransaction().commit();
         return obj;
     }
 
     public void update(Object entity) {
-        hibernateTemplate.update(entity);
+        getSession().getTransaction().begin();
+        getSession().update(entity);
+        getSession().getTransaction().commit();
     }
 
     public void saveOrUpdate(Object entity) {
-        hibernateTemplate.saveOrUpdate(entity);
+        getSession().getTransaction().begin();
+        getSession().saveOrUpdate(entity);
+        getSession().getTransaction().commit();
     }
 
     public void delete(Object entity) {
-        hibernateTemplate.delete(entity);
+        getSession().getTransaction().begin();
+        getSession().delete(entity);
+        getSession().getTransaction().commit();
     }
 
     public void flush() {
@@ -68,6 +75,7 @@ public class BaseDao<T> {
     }
 
     public Session getSession() {
+        sf.getCurrentSession().setFlushMode(FlushMode.AUTO);
         return sf.getCurrentSession();
     }
 

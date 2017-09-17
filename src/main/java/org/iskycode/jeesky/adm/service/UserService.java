@@ -12,10 +12,11 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
+import java.util.Date;
 import java.util.List;
 
+@Transactional(readOnly = false)
 @Service
-@Transactional(value = "txManager", readOnly = false)
 public class UserService {
 
     @Autowired
@@ -51,20 +52,15 @@ public class UserService {
         return userDao.loadAll();
     }
 
-    @Transactional(value = "txManager", readOnly = false, propagation = Propagation.REQUIRED)
     public void saveOrUpdate(User user) {
+        user.setCreateDate(new Date());
+        user.setUpdateDate(new Date());
         userDao.saveOrUpdate(user);
     }
 
-    @Transactional(value = "txManager", readOnly = false, propagation = Propagation.REQUIRED)
     public void save(User user) {
+        user.setCreateDate(new Date());
+        user.setUpdateDate(new Date());
         userDao.save(user);
-
-        userDao.execute("insert into sys_user (id, NAME, PASSWORD) values ('1ssdfskldjflakdalsid','22','333');");
-
-        List<User> list = userDao.loadAll();
-        for (int i = 0; i < list.size(); i++) {
-            System.out.println(list.get(i).getName());
-        }
     }
 }

@@ -19,6 +19,9 @@
     <!--声明aspectj支持-->
     <aop:aspectj-autoproxy proxy-target-class="true"/>
 
+    <!--hibernate事务注解支持-->
+    <tx:annotation-driven transaction-manager="txManager" proxy-target-class="true"/>
+
     <!-- 获取数据库配置文件 -->
     <bean
             class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -52,19 +55,14 @@
                 </prop>
                 <prop key="hibernate.format_sql">true</prop>
                 <prop key="hibernate.show_sql">true</prop>
-                <prop key="hibernate.connection.autocommit">true</prop>
-                <prop key="connection.autocommit">true</prop>
             </props>
         </property>
     </bean>
 
-    <!--hibernate事务注解支持-->
-    <tx:annotation-driven transaction-manager="txManager" proxy-target-class="true"/>
-
     <!-- hibernate的持久化访问模块配置 -->
     <bean id="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
         <property name="sessionFactory" ref="sf"></property>
-        <property name="checkWriteOperations" value="false"/>
+        <!--<property name="checkWriteOperations" value="false"/>-->
     </bean>
 
     <!-- hibernate的事务管理 -->
