@@ -1,4 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
 <html>
 <head>
     <title>注册</title>
@@ -45,7 +50,7 @@
     <div class="login-div">
         <h2>注册一下，开始修仙</h2>
         <br/>
-        <form class="login-form" role="form" method="post" action="/l/register.action">
+        <form class="login-form" role="form" method="post" action="../l/register.action">
             <div class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"
                                                        aria-hidden="true"></i></span>

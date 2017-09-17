@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.apache.shiro.mgt.SecurityManager;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -35,7 +34,8 @@ public class LoginController {
         return Const.COMMON_JSP + "login";
     }
 
-    @ResponseBody
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	@ResponseBody
     @RequestMapping(value = "/login")
     public String login(String username, String password) {
         Map map = new HashMap<String, String>();

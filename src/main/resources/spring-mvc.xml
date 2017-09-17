@@ -1,75 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:mvc="http://www.springframework.org/schema/mvc"
-       xsi:schemaLocation="
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
         http://www.springframework.org/schema/beans     
-        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd    
+        http://www.springframework.org/schema/beans/spring-beans-4.0.xsd    
         http://www.springframework.org/schema/context     
-        http://www.springframework.org/schema/context/spring-context-3.0.xsd    
+        http://www.springframework.org/schema/context/spring-context-4.0.xsd    
         http://www.springframework.org/schema/mvc     
-        http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+        http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
 
-    <!-- spring的注解功能开启 -->
-    <mvc:annotation-driven/>
-    <!-- spring的自动装配的作用区域 -->
-    <context:component-scan base-package="org.iskycode.jeesky"/>
-    <!-- 静态资源文件的访问设置 -->
-    <mvc:resources mapping="/static/**" location="/static/"/>
+	<!-- spring的注解功能开启 -->
+	<mvc:annotation-driven>
+		<mvc:message-converters register-defaults="true">
+			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+				<constructor-arg value="UTF-8" />
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
 
-    <context:component-scan base-package="org.iskycode.jeesky">
-        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
-        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>
-    </context:component-scan>
 
-    <bean id="contentNegotiationManager"
-          class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
-        <!-- 下面三个可以全部进行设置，也可以全部不写，或者写其中几个；为了系统安全性和代码一致性，推荐是写的（个人理解，仅供参考）。 -->
-        <!-- 启用后缀名作为返回视图类型标识。默认为true -->
-        <property name="favorPathExtension" value="true"></property>
+	<!-- spring的自动装配的作用区域 -->
+	<context:component-scan base-package="org.iskycode.jeesky" />
+	<!-- 静态资源文件的访问设置 -->
+	<mvc:resources mapping="/static/**" location="/static/" />
 
-        <!-- 忽略请求头中的回调申明，仅按后缀名判定返回视图类型。 默认为false -->
-        <property name="ignoreAcceptHeader" value="true"></property>
+	<context:component-scan base-package="org.iskycode.jeesky">
+		<context:include-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+		<context:exclude-filter type="annotation"
+			expression="org.springframework.stereotype.Service" />
+	</context:component-scan>
 
-        <!-- 启用参数申明返回视图类型。默认为true -->
-        <property name="favorParameter" value="false"></property>
+	<bean id="contentNegotiationManager"
+		class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
+		<!-- 下面三个可以全部进行设置，也可以全部不写，或者写其中几个；为了系统安全性和代码一致性，推荐是写的（个人理解，仅供参考）。 -->
+		<!-- 启用后缀名作为返回视图类型标识。默认为true -->
+		<property name="favorPathExtension" value="true"></property>
 
-        <!-- 默认解析类型 -->
-        <property name="defaultContentType" value="text/html"/>
+		<!-- 忽略请求头中的回调申明，仅按后缀名判定返回视图类型。 默认为false -->
+		<property name="ignoreAcceptHeader" value="true"></property>
 
-        <!-- 申明各种视图后缀拦截器 -->
-        <property name="mediaTypes">
-            <map>
-                <entry key="json" value="application/json"/>
-                <entry key="xml" value="application/xml"/>
-            </map>
-        </property>
-    </bean>
+		<!-- 启用参数申明返回视图类型。默认为true -->
+		<property name="favorParameter" value="false"></property>
 
-    <!-- 视图文件解析配置 -->
-    <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
-        <property name="order" value="1"/>
+		<!-- 默认解析类型 -->
+		<property name="defaultContentType" value="text/html" />
 
-        <!-- 引入视图配置 -->
-        <property name="contentNegotiationManager" ref="contentNegotiationManager"/>
+		<!-- 申明各种视图后缀拦截器 -->
+		<property name="mediaTypes">
+			<map>
+				<entry key="json" value="application/json" />
+				<entry key="xml" value="application/xml" />
+			</map>
+		</property>
+	</bean>
 
-        <!-- 配置拦截各个后缀，并返回相应类型视图的实现框架 -->
-        <property name="defaultViews">
-            <list>
-                <!-- Jsp view 可以在这里自定义自己的jsp视图实现类，当然也可以用spring mvc提供的InternalResourceViewResolver去拦截。 -->
+	<!-- 视图文件解析配置 -->
+	<bean
+		class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+		<property name="order" value="1" />
 
-                <!-- Json view -->
-                <bean class="org.springframework.web.servlet.view.json.MappingJackson2JsonView"/>
-                <!-- XML view -->
+		<!-- 引入视图配置 -->
+		<property name="contentNegotiationManager" ref="contentNegotiationManager" />
 
-            </list>
-        </property>
-    </bean>
+		<!-- 配置拦截各个后缀，并返回相应类型视图的实现框架 -->
+		<property name="defaultViews">
+			<list>
+				<!-- Jsp view 可以在这里自定义自己的jsp视图实现类，当然也可以用spring mvc提供的InternalResourceViewResolver去拦截。 -->
 
-    <!-- 可以拦截所有请求，在后台未用@ResponseBody声明的情况下，一律按view名返回，然后加前缀后缀，形成最终返回视图。 -->
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/"/>
-        <property name="suffix" value=".jsp"/>
-    </bean>
+				<!-- Json view -->
+				<bean
+					class="org.springframework.web.servlet.view.json.MappingJackson2JsonView" />
+				<!-- XML view -->
+
+			</list>
+		</property>
+	</bean>
+
+	<!-- 可以拦截所有请求，在后台未用@ResponseBody声明的情况下，一律按view名返回，然后加前缀后缀，形成最终返回视图。 -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
 </beans>
