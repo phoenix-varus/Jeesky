@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>登录</title>
+    <title>注册</title>
     <%--Taglib--%>
     <jsp:include page="../sys/taglib.jsp"></jsp:include>
 
