@@ -32,6 +32,10 @@ html, body, .page {
     text-align: center;
 }
 
+.i-error-div {
+    display: none;
+}
+
 h2 {
     font-family: dnmbxsxd;
 }

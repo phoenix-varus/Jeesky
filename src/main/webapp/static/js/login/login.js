@@ -2,7 +2,7 @@ function login() {
 	$("#i-login-form").validate({
 		errorContainer : "#i-error-div",
 		errorLabelContainer : $("#i-error-div"),
-		wrapper : "li",
+		wrapper : "div",
 		rules : {
 			username : {
 				required : true
@@ -21,27 +21,31 @@ function login() {
 		},
 		success : "valid"
 	});
-	if ($("#username").hasClass("valid") && $("password").hasClass("valid")) {
-		$.ajax({
-			data : {
-				username : $("username").val(),
-				password : $("password").val()
-			},
-			url : "../l/login",
-			contenttype : "application/x-www-form-urlencoded;charset=utf-8",
-			success : function(data) {
-				if (data.status == "success") {
-					location.href = "../s/index";
-				}
-			},
-			error : function(e) {
-				$("#i-error-div").html("登录失败！" + $("#i-error-div").html());
-				$("#i-error-div").show();
-			}
-		});
-	} else {
-		$("#i-error-div").html("登录失败！" + $("#i-error-div").html());
-		$("#i-error-div").show();
+	if ($("#username").hasClass("valid") && $("#password").hasClass("valid")) {
+		$
+				.ajax({
+					data : {
+						username : $("#username").val(),
+						password : $("#password").val()
+					},
+					url : "../l/login",
+					contenttype : "application/x-www-form-urlencoded;charset=utf-8",
+					success : function(data) {
+						data = JSON.parse(data);
+						if (data.status == "success") {
+							window.location.href = "../s/index";
+						} else {
+							$("#i-error-div").html(
+									data.msg + $("#i-error-div").html());
+							$("#i-error-div").show();
+						}
+					},
+					error : function(e) {
+						$("#i-error-div").html(
+								"登录失败！" + $("#i-error-div").html());
+						$("#i-error-div").show();
+					}
+				});
 	}
 }
 
@@ -53,7 +57,7 @@ function register() {
 	$("#i-login-form").validate({
 		errorContainer : "#i-error-div",
 		errorLabelContainer : $("#i-error-div"),
-		wrapper : "li",
+		wrapper : "div",
 		rules : {
 			username : {
 				required : true
