@@ -12,7 +12,7 @@
 <%--Taglib--%>
 <jsp:include page="../sys/taglib.jsp"></jsp:include>
 <script type="application/javascript" src="<%=basePath%>static/js/login/login.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+<script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
 <style type="text/css">
 html, body, .page {
     margin: 0px;
