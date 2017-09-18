@@ -6,37 +6,32 @@
 			+ path + "/";
 %>
 
-<%--TLDs--%>
-<%@ taglib prefix="jk" uri="../tlds/jeesky.tld"%>
-
-<%--JQuery--%>
+<!-- JQuery -->
 <script src="<%=basePath%>static/js/jquery.min.js"></script>
 
-<%--Bootstrap--%>
+<!-- Bootstrap -->
 <script src="<%=basePath%>static/js/bootstrap.min.js"></script>
 
 <!--FileUpload-->
 <script src="<%=basePath%>static/js/fileinput.js"></script>
 
-<%--Bootstrap--%>
-<link rel="stylesheet"
-	href="<%=basePath%>static/css/bootstrap-theme.min.css" />
+<!-- Bootstrap -->
+<link rel="stylesheet" href="<%=basePath%>static/css/bootstrap-theme.min.css" />
 <link rel="stylesheet" href="<%=basePath%>static/css/bootstrap.min.css" />
 
 <!--FileUpload-->
 <link rel="stylesheet" href="<%=basePath%>static/css/fileinput.min.css" />
 
-<%--Icon--%>
+<!-- Icon -->
 <link rel="shortcut icon" href="" />
 
-<%--Font Awesome--%>
-<link rel="stylesheet"
-	href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" />
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" />
 
-<%--Font--%>
+<!-- Font -->
 <style>
 @font-face {
-	font-family: 'dnmbxsxd';
-	src: url('<%=basePath%>static/fonts/duanningmaobixingshuxiuding.ttf');
+    font-family: 'dnmbxsxd';
+    src: url('<%=basePath%>static/fonts/duanningmaobixingshuxiuding.ttf');
 }
 </style>
