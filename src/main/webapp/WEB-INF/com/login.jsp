@@ -60,11 +60,11 @@ h2 {
     <div class="page">
         <div class="i-login-div">
             <div class="alert alert-danger alert-dismissable i-error-div" id="i-error-div">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <span class="i-error-close-btn">&times;</span>
             </div>
             <h2>欢迎回来，我的朋友</h2>
             <br />
-            <form class="i-login-form" role="form" id="i-login-form">
+            <div class="i-login-form" role="form" id="i-login-form">
                 <div class="input-group">
                     <span class="input-group-addon">
                         <i class="glyphicon glyphicon-user" aria-hidden="true"></i>
@@ -83,7 +83,7 @@ h2 {
                     <a class="btn btn-default btn-group-lg i-login-btn" href="../l/toregister.action">注册</a>
                     <button class="btn btn-default btn-group-lg i-login-btn" onclick="login();">登录</button>
                 </div>
-            </form>
+            </div>
         </div>
         <br>
         <div class="i-login-copyright">
