@@ -6,4 +6,4 @@
         text-align: center;
     }
 </style>
-<div class="login-copyright">CopyRightÂ©2017 JeeSky - iSkyCode</div>
+<div class="login-copyright">CopyRight©2017 JeeSky - iSkyCode</div>
