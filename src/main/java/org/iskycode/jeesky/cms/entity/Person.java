@@ -8,9 +8,15 @@ import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
 import org.iskycode.jeesky.sys.entity.BaseEntity;
 
+/**
+ * @author phoenix
+ *
+ *         人物实体类
+ */
 @Entity
 @Table(name = "art_person")
 public class Person extends BaseEntity {
+
 	@Id
 	@GeneratedValue(generator = "uuid")
 	@GenericGenerator(name = "uuid", strategy = "uuid")

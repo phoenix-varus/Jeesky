@@ -2,8 +2,10 @@ package org.iskycode.jeesky.sys.entity;
 
 import java.util.Date;
 
-/*
- * 基础实体类，定义实体类通用字段
+/**
+ * @author phoenix
+ *
+ *         基础实体类，定义实体类通用字段
  */
 public class BaseEntity {
 	// 创建日期

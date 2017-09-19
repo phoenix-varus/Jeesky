@@ -8,9 +8,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * @author phoenix
+ *
+ *         权限实体类
+ */
 @Entity
 @Table(name = "sys_permission")
 public class Permission extends BaseEntity {
+
 	@Id
 	@GeneratedValue(generator = "uuid")
 	@GenericGenerator(name = "uuid", strategy = "uuid")

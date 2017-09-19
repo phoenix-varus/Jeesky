@@ -8,6 +8,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * @author phoenix
+ *
+ *         角色实体类
+ */
 @Entity
 @Table(name = "sys_role")
 public class Role extends BaseEntity {

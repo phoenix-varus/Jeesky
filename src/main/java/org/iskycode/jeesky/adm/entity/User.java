@@ -1,6 +1,5 @@
 package org.iskycode.jeesky.adm.entity;
 
-
 import org.hibernate.annotations.GenericGenerator;
 import org.iskycode.jeesky.sys.entity.BaseEntity;
 
@@ -9,133 +8,139 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * @author phoenix
+ *
+ *         用户实体类
+ */
 @Entity
 @Table(name = "sys_user")
 public class User extends BaseEntity {
-    @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid")
-    private String id;
-    // 用户名
-    private String name;
-    // 昵称
-    private String nickname;
-    // 密码
-    private String password;
-    // 性别
-    private String gender;
-    // 邮箱
-    private String email;
-    // 电话
-    private String phone;
-    // QQ
-    private String qq;
-    // 微信
-    private String wechat;
-    // 地址
-    private String address;
-    // 简要说明
-    private String resume;
-    // 头像
-    private String avatar;
 
-    public String getId() {
-        return id;
-    }
+	@Id
+	@GeneratedValue(generator = "uuid")
+	@GenericGenerator(name = "uuid", strategy = "uuid")
+	private String id;
+	// 用户名
+	private String name;
+	// 昵称
+	private String nickname;
+	// 密码
+	private String password;
+	// 性别
+	private String gender;
+	// 邮箱
+	private String email;
+	// 电话
+	private String phone;
+	// QQ
+	private String qq;
+	// 微信
+	private String wechat;
+	// 地址
+	private String address;
+	// 简要说明
+	private String resume;
+	// 头像
+	private String avatar;
 
-    public void setId(String id) {
-        this.id = id;
-    }
+	public String getId() {
+		return id;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public void setId(String id) {
+		this.id = id;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public String getPassword() {
-        return password;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+	public String getPassword() {
+		return password;
+	}
 
-    public String getNickname() {
-        return nickname;
-    }
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
+	public String getNickname() {
+		return nickname;
+	}
 
-    public byte[] getCredentialsSalt() {
-        return null;
-    }
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
 
-    public String getGender() {
-        return gender;
-    }
+	public byte[] getCredentialsSalt() {
+		return null;
+	}
 
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
+	public String getGender() {
+		return gender;
+	}
 
-    public String getEmail() {
-        return email;
-    }
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public String getPhone() {
-        return phone;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
+	public String getPhone() {
+		return phone;
+	}
 
-    public String getQq() {
-        return qq;
-    }
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
 
-    public void setQq(String qq) {
-        this.qq = qq;
-    }
+	public String getQq() {
+		return qq;
+	}
 
-    public String getWechat() {
-        return wechat;
-    }
+	public void setQq(String qq) {
+		this.qq = qq;
+	}
 
-    public void setWechat(String wechat) {
-        this.wechat = wechat;
-    }
+	public String getWechat() {
+		return wechat;
+	}
 
-    public String getAddress() {
-        return address;
-    }
+	public void setWechat(String wechat) {
+		this.wechat = wechat;
+	}
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
+	public String getAddress() {
+		return address;
+	}
 
-    public String getResume() {
-        return resume;
-    }
+	public void setAddress(String address) {
+		this.address = address;
+	}
 
-    public void setResume(String resume) {
-        this.resume = resume;
-    }
+	public String getResume() {
+		return resume;
+	}
 
-    public String getAvatar() {
-        return avatar;
-    }
+	public void setResume(String resume) {
+		this.resume = resume;
+	}
 
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
-    }
+	public String getAvatar() {
+		return avatar;
+	}
+
+	public void setAvatar(String avatar) {
+		this.avatar = avatar;
+	}
 }
