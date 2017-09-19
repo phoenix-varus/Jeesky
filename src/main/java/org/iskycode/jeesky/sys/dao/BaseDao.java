@@ -65,6 +65,12 @@ public class BaseDao<T> {
 		getSession().getTransaction().commit();
 	}
 
+	public void merge(Object entity) {
+		getSession().getTransaction().begin();
+		getSession().merge(entity);
+		getSession().getTransaction().commit();
+	}
+
 	public void delete(Object entity) {
 		getSession().getTransaction().begin();
 		getSession().delete(entity);
