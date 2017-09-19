@@ -43,8 +43,7 @@ public class BaseDao<T> {
 		return (Class<?>) params[0];
 	}
 
-	// ---------------------------------------hibernate
-	// session---------------------------------------
+	// ---------------------------------------hibernate-session---------------------------------------
 
 	public Object save(Object entity) {
 		getSession().getTransaction().begin();
@@ -91,7 +90,7 @@ public class BaseDao<T> {
 		return sf.getCurrentSession();
 	}
 
-	// ---------------------------------------hibernate---------------------------------------
+	// ---------------------------------------hibernateTemplate---------------------------------------
 
 	public Object load(String id) {
 		return hibernateTemplate.load(getEntityClass(), id);
