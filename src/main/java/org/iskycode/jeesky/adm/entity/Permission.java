@@ -1,5 +1,6 @@
 package org.iskycode.jeesky.adm.entity;
 
+import org.hibernate.annotations.GenericGenerator;
 import org.iskycode.jeesky.sys.entity.BaseEntity;
 
 import javax.persistence.Entity;
@@ -10,37 +11,36 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "sys_permission")
 public class Permission extends BaseEntity {
-    @Id
-    @GeneratedValue
-    private String id;
+	@Id
+	@GeneratedValue(generator = "uuid")
+	@GenericGenerator(name = "uuid", strategy = "uuid")
+	private String id;
+	// 权限标识
+	private String name;
+	// 权限描述
+	private String description;
 
-    private String name;
+	public String getId() {
+		return id;
+	}
 
-    private String description;
+	public void setId(String id) {
+		this.id = id;
+	}
 
+	public String getName() {
+		return name;
+	}
 
-    public String getId() {
-        return id;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public void setId(String id) {
-        this.id = id;
-    }
+	public String getDescription() {
+		return description;
+	}
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
+	public void setDescription(String description) {
+		this.description = description;
+	}
 }
