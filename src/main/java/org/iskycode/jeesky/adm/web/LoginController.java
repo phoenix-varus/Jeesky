@@ -9,13 +9,12 @@ import org.apache.shiro.subject.Subject;
 import org.iskycode.jeesky.adm.entity.User;
 import org.iskycode.jeesky.adm.service.UserService;
 import org.iskycode.jeesky.sys.util.Const;
-import org.iskycode.jeesky.sys.util.JsonUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.apache.shiro.mgt.SecurityManager;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -36,15 +35,16 @@ public class LoginController {
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	@ResponseBody
 	@RequestMapping(value = "/login")
-	public String login(String username, String password) {
+	public ModelAndView login(String username, String password) {
 		Map map = new HashMap<String, String>();
+		ModelAndView mav = new ModelAndView();
 
 		if (StringUtils.isEmpty(username) || StringUtils.isEmpty(password)) {
 			map.put("status", "faied");
 			map.put("msg", "用户名和密码不能为空");
-			return JsonUtils.toJson(map);
+			mav.addObject("detail", map);
+			return mav;
 		}
 
 		UsernamePasswordToken token = new UsernamePasswordToken(username, password);
@@ -56,21 +56,25 @@ public class LoginController {
 			// 捕获密码错误异常
 			map.put("status", "failed");
 			map.put("msg", "密码错误");
-			return JsonUtils.toJson(map);
+			mav.addObject("detail", map);
+			return mav;
 		} catch (UnknownAccountException uae) {
 			// 捕获未知用户名异常
 			map.put("status", "failed");
 			map.put("msg", "用户不存在");
-			return JsonUtils.toJson(map);
+			mav.addObject("detail", map);
+			return mav;
 		} catch (ExcessiveAttemptsException eae) {
 			// 捕获错误登录过多的异常
 			map.put("status", "failed");
 			map.put("msg", "请稍后再试");
-			return JsonUtils.toJson(map);
+			mav.addObject("detail", map);
+			return mav;
 		}
 		map.put("status", "success");
 		map.put("msg", "登录成功");
-		return JsonUtils.toJson(map);
+		mav.addObject("detail", map);
+		return mav;
 	}
 
 	@RequestMapping(value = "toregister")
