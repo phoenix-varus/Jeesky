@@ -10,14 +10,14 @@
 <script src="<%=basePath%>static/js/jquery.min.js"></script>
 
 <!-- Bootstrap -->
-<script src="<%=basePath%>static/js/bootstrap.min.js"></script>
+<script src="<%=basePath%>static/plugin/bootstrap/js/bootstrap.min.js"></script>
 
 <!--FileUpload-->
 <script src="<%=basePath%>static/js/fileinput.js"></script>
 
 <!-- Bootstrap -->
-<link rel="stylesheet" href="<%=basePath%>static/css/bootstrap-theme.min.css" />
-<link rel="stylesheet" href="<%=basePath%>static/css/bootstrap.min.css" />
+<link rel="stylesheet" href="<%=basePath%>static/plugin/bootstrap/css/bootstrap-theme.min.css" />
+<link rel="stylesheet" href="<%=basePath%>static/plugin/bootstrap/css/bootstrap.min.css" />
 
 <!--FileUpload-->
 <link rel="stylesheet" href="<%=basePath%>static/css/fileinput.min.css" />
