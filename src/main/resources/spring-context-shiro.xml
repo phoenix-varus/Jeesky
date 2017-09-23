@@ -24,9 +24,19 @@
 
     <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
         <property name="realm" ref="userRealm"/>
+        <property name="rememberMeManager" ref="cookieRememberMeManager"/>
     </bean>
     <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
 
     <!-- security datasource: -->
     <bean id="userRealm" class="org.iskycode.jeesky.sys.security.UserRealm"/>
+
+    <bean id="remeberMeCookie" class="org.apache.shiro.web.servlet.SimpleCookie">
+        <property name="name" value="remeberMe"/>
+        <property name="maxAge" value="30000"/>
+    </bean>
+
+    <bean id="cookieRememberMeManager" class="org.apache.shiro.web.mgt.CookieRememberMeManager">
+        <property name="cookie" ref="remeberMeCookie"/>
+    </bean>
 </beans>
